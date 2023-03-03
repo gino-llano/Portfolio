@@ -1,13 +1,92 @@
-body {
+@import url('https://necolas.github.io/normalize.css/8.0.1/normalize.css');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+html {
+  scroll-behavior: smooth;
+ }
+
+*
+{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a
+{
+  text-decoration: none;
+  color: inherit;
+}
+
+button
+{
+  border: none;
+  outline: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+input:focus-visible
+{
+  outline: none;
+}
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+
+.hidden
+{
+  display: none !important;  
+}
+
+:root
+{
+  --scale: 1;
+}
+
+@media screen and (max-width: 1024px)
+{
+  :root{--scale: 0.9;}
+  /* html{font-size: 90%;} */
+}
+@media screen and (max-width: 896px)
+{
+  :root{--scale: 0.85;}
+  /* html{font-size: 80%;} */
+}
+@media screen and (max-width: 768px)
+{
+  :root{--scale: 0.75;}
+  html{font-size: 90%;}
+}
+@media screen and (max-width: 640px)
+{
+  :root{--scale: 0.60;}
+  /* html{font-size: 70%;} */
+}
+@media screen and (max-width: 512px)
+{
+  :root{--scale: 0.5;}
+  /* html{font-size: 65%;} */
 }

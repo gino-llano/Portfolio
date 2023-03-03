@@ -1,0 +1,238 @@
+@import 'mixins';
+
+.app
+{
+  @include flex(column);
+
+  > *
+  {
+    width: 100%;
+    max-width: 1024px;
+    padding: calc(20px * var(--scale));
+    > .title
+    {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  }
+  .navigator
+  {
+    background-color: inherit;
+    position: fixed;
+    top: 0;
+    @include flex(row, space-between);
+    > *
+    {
+      @include flex();
+      gap: calc(20px * var(--scale));
+    }
+    button.tools,
+    button.menu
+    {
+      @include generic-icon-button();
+    }
+    section.tools
+    {
+      button.mode
+      {
+        @include generic-icon-button();
+      }
+      .languages
+      {
+        color: inherit;
+        background-color: inherit;
+        > button
+        {
+          color: inherit;
+          background-color: inherit;
+          font-size: 1.5rem;
+        }
+      }
+    }
+    section.menu
+    {
+      a
+      {
+        font-size: 1.5rem;
+      }
+    }
+    section.tools.floating,
+    section.menu.floating
+    {
+      position: absolute;
+      right: 0;
+      top: 100%;
+      width: 100%;
+      @include flex(column);
+      gap: calc(20px * var(--scale));
+      padding: calc(20px * var(--scale));
+      background-color: inherit;
+    }
+  }
+  .presentation
+  {
+    padding-top: calc(40px * var(--scale));
+    @include flex(column);
+    gap: calc(10px * var(--scale));
+
+    .personal-photo
+    {
+      width: calc(200px * var(--scale));
+      height: calc(200px * var(--scale));
+      border-radius: 50%;
+      object-fit: contain;
+    }
+    .greeting
+    {
+      font-size: 2rem;
+      text-align: center;
+    }
+    .charge
+    {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    .computer-image
+    {
+      width: 50%;
+      min-width: 200px;
+      max-width: 800px;
+    }
+    padding-bottom: 0;
+  }
+  #about-me
+  {
+    @include flex(column);
+    gap: calc(20px * var(--scale));
+
+    .content
+    {
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+    }
+  }
+  #certifications
+  {
+    @include flex(column);
+    gap: calc(20px * var(--scale));
+    .list
+    {
+      width: 100%;
+      font-size: 1.2rem;
+      @include flex(column);
+      gap: calc(20px * var(--scale));
+      .certification
+      {
+        width: 100%;
+        max-width: 600px;
+        @include flex(row, space-between);
+        gap: calc(20px * var(--scale));
+        span
+        {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  #projects
+  {
+    @include flex(column);
+    gap: calc(20px * var(--scale));
+    .list
+    {
+      width: 75%;
+      max-width: calc(1024px * 75 / 100);
+      font-size: 1.2rem;
+      @include flex(column);
+      gap: calc(20px * var(--scale));
+      .project
+      {
+        @include flex(column);
+        gap: calc(20px * var(--scale));
+        padding: calc(20px * var(--scale));
+        border-radius: calc(5px * var(--scale));
+        .title
+        {
+          text-align: center;
+          font-size: 1.5rem;
+        }
+        .content
+        {
+          @include flex(row, center, flex-start);
+          gap: calc(20px * var(--scale));
+          width: 100%;
+          .text
+          {
+            @include flex(column, center, flex-start);
+            gap: calc(20px * var(--scale));
+            .description
+            {
+              font-size: 1.2rem;
+              line-height: 1.8rem;;
+            }
+            a
+            {
+              text-decoration: underline;
+            }
+          }
+          img
+          {
+            max-width: 50%;
+            max-height: calc(400px * var(--scale));
+          }
+        }
+      }
+    }
+  }
+  #contact
+  {
+    @include flex(column);
+    gap: calc(20px * var(--scale));
+    .letstalk
+    {
+      font-size: 1.5rem;
+    }
+    .links
+    {
+      @include flex();
+      gap: calc(20px * var(--scale));
+      a
+      {
+        @include generic-icon-button();
+        i
+        {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px)
+{
+  .app
+  {
+    #projects
+    {
+      .list
+      {
+        width: 100%;
+        max-width: 1024px;
+        .project
+        {
+          .content
+          {
+            @include flex(column-reverse);
+            .text
+            {
+              align-items: center;
+            }
+            img
+            {
+              max-width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
